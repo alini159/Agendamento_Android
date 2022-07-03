@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.agendamento.view.SplashScreenFragment"
+        android:label="SplashScreen"
+        tools:layout="@layout/splah_screen_fragment">
+        <action android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.agendamento.view.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.agendamento.view.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+        <argument
+            android:name="cpf"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_home_to_moreOptionsFragment"
+            app:destination="@id/moreOptionsFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_homeFragment_to_scheduleFragment"
+        app:destination="@id/navigation_schedule" />
+
+    <fragment
+        android:id="@+id/navigation_schedule"
+        android:name="com.example.agendamento.view.ScheduleFragment"
+        android:label="ScheduleFragment"
+        tools:layout="@layout/schedule_fragment"/>
+
+    <action
+        android:id="@+id/action_scheduleFragment_to_settingsFragment"
+        app:destination="@id/navigation_settings" />
+
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.agendamento.view.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_loginFragment"
+            app:enterAnim="@animator/nav_default_pop_enter_anim"
+            app:destination="@id/loginFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/moreOptionsFragment"
+        android:name="com.example.agendamento.view.MoreOptionsFragment"
+        android:label="MoreOptionsFragment" >
+
+    </fragment>
+</navigation>
